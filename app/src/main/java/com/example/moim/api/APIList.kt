@@ -8,6 +8,13 @@ import retrofit2.http.*
 interface APIList {
     //    user
     @FormUrlEncoded
+    @POST("/user")
+    fun postRequestLogin (
+        @Field("email") email: String,
+        @Field("password") password : String,
+    ) : Call<BasicResponse>
+
+    @FormUrlEncoded
     @PUT("/user")
     fun putRequestSignUp(
         @Field("email") email : String,
@@ -15,7 +22,6 @@ interface APIList {
         @Field("nick_name") nickname : String,
     ) : Call<BasicResponse>
 
-//    user
     @GET("/user/check")
     fun getRequestUserCheck (
     @Query("type") type : String,
