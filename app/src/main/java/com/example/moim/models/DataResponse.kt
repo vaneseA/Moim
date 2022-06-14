@@ -1,4 +1,7 @@
 package com.example.moim.models
 
-class DataResponse {
+class DataResponse (
+    val user : UserData,
+    val token : String,
+) {
 }
