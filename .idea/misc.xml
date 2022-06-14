@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.12407407407407407" />
+        <entry key="app/src/main/res/layout/anim_splash_imageview.xml" value="0.40260416666666665" />
       </map>
     </option>
   </component>

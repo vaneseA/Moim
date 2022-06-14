@@ -4,12 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:gravity="center"
+
     tools:context=".SplashActivity">
 
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/ic_launcher_round" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="다 모임?"
+        android:textColor="@color/black"
+        android:textSize="28dp" />
 </LinearLayout>
+
