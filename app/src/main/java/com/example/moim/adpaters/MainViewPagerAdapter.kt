@@ -9,19 +9,15 @@ import com.example.moim.fragments.OutdoorFragment
 import com.example.moim.fragments.SportsFragment
 
 class MainViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    override fun getCount(): Int {
-        return 4
-    }
+
+    override fun getCount() = 3
 
     override fun getItem(position: Int): Fragment {
-        if (position == 0) {
-            return AllFragment()
-        } else if (position == 1) {
-            return OutdoorFragment()
-        } else if (position == 2) {
-            return SportsFragment()
-        }else {
-            return BookFragment()
+        return when (position) {
+            0 -> AllFragment()
+            1 -> OutdoorFragment()
+            2 -> SportsFragment()
+            else -> BookFragment()
         }
     }
 }
