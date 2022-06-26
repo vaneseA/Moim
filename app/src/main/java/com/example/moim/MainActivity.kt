@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
 
     override fun setValues() {
         binding.mainViewPager.adapter = mAdapter
-
+        binding.mainTabLayout.setupWithViewPager(binding.mainViewPager)
     }
 
 }

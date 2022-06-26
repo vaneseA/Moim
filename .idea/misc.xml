@@ -9,6 +9,11 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/layout/anim_splash_imageview.xml" value="0.40260416666666665" />
+        <entry key="app/src/main/res/layout/fragment_all.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/layout/fragment_book.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/fragment_name.xml" value="0.27395833333333336" />
+        <entry key="app/src/main/res/layout/fragment_outdoor.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/fragment_sports.xml" value="0.275" />
       </map>
     </option>
   </component>
