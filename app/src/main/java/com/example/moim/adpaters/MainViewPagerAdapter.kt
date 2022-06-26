@@ -20,4 +20,13 @@ class MainViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             else -> BookFragment()
         }
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when (position) {
+            0 -> "전체"
+            1 -> "아웃도어/여행"
+            2 -> "운동/스포츠"
+            else -> "인문학/책/글"
+        }
+    }
 }
