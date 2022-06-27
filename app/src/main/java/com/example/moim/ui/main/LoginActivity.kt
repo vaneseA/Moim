@@ -9,6 +9,7 @@ import com.example.moim.MainActivity
 import com.example.moim.R
 import com.example.moim.databinding.ActivityLoginBinding
 import com.example.moim.models.BasicResponse
+import com.example.moim.ui.profile.ProfileActivity
 import com.example.moim.ui.signup.SignUpActivity
 import org.json.JSONObject
 import retrofit2.Call
@@ -27,6 +28,11 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        binding.goToProfileImg.setOnClickListener {
+            val myIntent = Intent(this,ProfileActivity::class.java)
+            startActivity(myIntent)
+        }
+
         binding.loginBtn.setOnClickListener {
             val inputEmail = binding.emailEdt.text.toString()
             val inputPw = binding.passwordEdt.text.toString()

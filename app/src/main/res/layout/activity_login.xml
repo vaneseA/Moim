@@ -20,6 +20,7 @@
             android:layout_marginTop="30dp">
 
             <ImageView
+                android:id="@+id/goToProfileImg"
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher_round" />

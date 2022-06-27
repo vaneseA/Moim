@@ -8,10 +8,9 @@
         android:orientation="vertical"
         tools:context=".ui.profile.ProfileActivity">
 
-<de.hdodenhof.circleimageview.CircleImageView
-    android:id="@+id/profileImg"
-    android:layout_width="150dp"
-    android:layout_height="150dp"
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:src="@drawable/profile_icon"/>
     </LinearLayout>
 </layout>
