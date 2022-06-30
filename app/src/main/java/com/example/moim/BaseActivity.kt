@@ -1,6 +1,7 @@
 package com.example.moim
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.moim.api.APIList
 import com.example.moim.api.ServerApi
+import com.example.moim.ui.profile.ProfileActivity
 import retrofit2.Retrofit
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -18,8 +20,10 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var retrofit : Retrofit
     lateinit var apiList : APIList
 
+    lateinit var backBtn : ImageView
     lateinit var titleTxt : TextView
     lateinit var addBtn : ImageView
+    lateinit var profileBtn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
         titleTxt = defActionBar.customView.findViewById(R.id.titleTxt)
         addBtn = defActionBar.customView.findViewById(R.id.addBtn)
+        profileBtn = defActionBar.customView.findViewById<ImageView>(R.id.profileBtn)
 
+//        backBtn.setOnClickListener {
+//            finish()
+//        }
+
+        profileBtn.setOnClickListener {
+            val myIntent = Intent(mContext, ProfileActivity::class.java)
+            startActivity(myIntent)
+        }
     }
 }
