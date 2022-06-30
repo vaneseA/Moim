@@ -4,18 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_bottom_tab1_category_recycler.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_image_profile.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_navigation_drawer.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/layout/anim_splash_imageview.xml" value="0.40260416666666665" />
+        <entry key="app/src/main/res/layout/appbar.xml" value="0.40260416666666665" />
         <entry key="app/src/main/res/layout/fragment_all.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_name.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/fragment_outdoor.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_sports.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/layout_navigation_header.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/my_custom_action_bar.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu_option_main.xml" value="0.335" />
       </map>
     </option>
   </component>
