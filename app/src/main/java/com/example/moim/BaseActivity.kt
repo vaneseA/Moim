@@ -50,13 +50,15 @@ abstract class BaseActivity : AppCompatActivity() {
         val toolbar = defActionBar.customView.parent as Toolbar
         toolbar.setContentInsetsAbsolute(0,0)
 
+
+        backBtn = defActionBar.customView.findViewById<ImageView>(R.id.backBtn)
         titleTxt = defActionBar.customView.findViewById(R.id.titleTxt)
         addBtn = defActionBar.customView.findViewById(R.id.addBtn)
         profileBtn = defActionBar.customView.findViewById<ImageView>(R.id.profileBtn)
 
-//        backBtn.setOnClickListener {
-//            finish()
-//        }
+        backBtn.setOnClickListener {
+            finish()
+        }
 
         profileBtn.setOnClickListener {
             val myIntent = Intent(mContext, ProfileActivity::class.java)
