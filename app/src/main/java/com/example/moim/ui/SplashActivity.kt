@@ -5,10 +5,20 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.moim.BaseActivity
+import com.example.moim.MainActivity
 import com.example.moim.R
+import com.example.moim.models.BasicResponse
 import com.example.moim.ui.main.LoginActivity
+import com.example.moim.utils.ContextUtil
+import com.example.moim.utils.GlobalData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SplashActivity : BaseActivity() {
+
+    var isTokenOk = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -17,6 +27,20 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        apiList.getRequestMyInfo(ContextUtil.getLoginToken(mContext)).enqueue(object : Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful) {
+                    val br = response.body()!!
+
+                    isTokenOk = true
+                    GlobalData.loginUser = br.data.user
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+        })
 
     }
 
@@ -26,9 +50,14 @@ class SplashActivity : BaseActivity() {
         myHandler.postDelayed({
 
             val myIntent: Intent
-            myIntent = Intent(mContext, LoginActivity::class.java)
-//여기서 스플래쉬 다음 액티비티를 설정할수 있다
+            if(isTokenOk && ContextUtil.getAutoLogin(mContext)) {
+                myIntent = Intent(mContext, MainActivity::class.java)
+            }
+            else {
+                myIntent = Intent(mContext, LoginActivity::class.java)
+            }
             startActivity(myIntent)
+            finish()
         }, 1800)
     }
 }

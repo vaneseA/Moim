@@ -10,12 +10,12 @@ import com.example.moim.databinding.ActivityMainBinding
 class MainActivity : BaseActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var mAdapter : MainViewPagerAdapter
+//    lateinit var mAdapter : MainViewPagerAdapter
     lateinit var mBottomAdapter : BottomViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mAdapter = MainViewPagerAdapter(supportFragmentManager)
+//        mAdapter = MainViewPagerAdapter(supportFragmentManager)
         setupEvents()
         setValues()
     }
@@ -27,7 +27,7 @@ class MainActivity : BaseActivity() {
         mBottomAdapter = BottomViewPagerAdapter(this)
         binding.bottomViewPager.adapter = mBottomAdapter
 
-        binding.mainViewPager.registerOnPageChangeCallback(
+        binding.bottomViewPager.registerOnPageChangeCallback(
             object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
@@ -37,9 +37,9 @@ class MainActivity : BaseActivity() {
 
         binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.bnv_tab1 -> binding.mainViewPager.currentItem = 0
-                R.id.bnv_tab2 -> binding.mainViewPager.currentItem = 1
-                R.id.bnv_tab3 -> binding.mainViewPager.currentItem = 2
+                R.id.bnv_tab1 -> binding.bottomViewPager.currentItem = 0
+                R.id.bnv_tab2 -> binding.bottomViewPager.currentItem = 1
+                R.id.bnv_tab3 -> binding.bottomViewPager.currentItem = 2
             }
             return@setOnItemSelectedListener true
         }

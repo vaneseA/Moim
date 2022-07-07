@@ -11,6 +11,8 @@ import com.example.moim.databinding.ActivityLoginBinding
 import com.example.moim.models.BasicResponse
 import com.example.moim.ui.profile.ProfileActivity
 import com.example.moim.ui.signup.SignUpActivity
+import com.example.moim.utils.ContextUtil
+import com.example.moim.utils.GlobalData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +47,10 @@ class LoginActivity : BaseActivity() {
 
                     if (response.isSuccessful) {
                         val br = response.body()!!
+
+                        ContextUtil.setLoginToken(mContext,br.data.token)
+                        ContextUtil.setAutoLogin(mContext,binding.autoLoginCb.isChecked)
+                        GlobalData.loginUser = br.data.user
 
                         Toast.makeText(mContext, "${br.data.user.nick_name}님 환영합니다.", Toast.LENGTH_SHORT).show()
 
