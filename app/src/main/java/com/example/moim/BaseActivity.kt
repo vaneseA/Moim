@@ -33,7 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
             setCustomActionBar()
         }
 
-        retrofit = ServerApi.getRetrofit()
+        retrofit = ServerApi.getRetrofit(mContext)
         apiList = retrofit.create(APIList::class.java)
     }
 

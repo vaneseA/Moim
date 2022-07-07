@@ -1,5 +1,6 @@
 package com.example.moim.api
 
+import android.content.Context
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,7 +13,7 @@ class ServerApi {
 
         private var retrofit : Retrofit? = null
 
-        fun getRetrofit() : Retrofit {
+        fun getRetrofit(context : Context) : Retrofit {
 
             if (retrofit == null) {
 

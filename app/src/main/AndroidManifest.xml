@@ -13,8 +13,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Moim"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Moim">
+<!--        tools:targetApi="31">-->
 <!--        <activity-->
 <!--            android:name="ui.menu.NavigationDrawer"-->
 <!--            android:exported="false" />-->
@@ -43,6 +43,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="4jq0e6vqr5" />
     </application>
 
 </manifest>
