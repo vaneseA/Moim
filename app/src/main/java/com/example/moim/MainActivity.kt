@@ -24,6 +24,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        titleTxt.text = "다모임"
+
         mBottomAdapter = BottomViewPagerAdapter(this)
         binding.bottomViewPager.adapter = mBottomAdapter
 
@@ -32,6 +34,12 @@ class MainActivity : BaseActivity() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     binding.bottomNav.menu.getItem(position).isChecked = true
+                    titleTxt.text = when (position){
+                        0 -> "모임찾기"
+                        1 -> "유료클래스"
+                        2 -> "내모임"
+                        else -> "주변검색"
+                    }
                 }
             })
 
@@ -40,6 +48,7 @@ class MainActivity : BaseActivity() {
                 R.id.bnv_tab1 -> binding.bottomViewPager.currentItem = 0
                 R.id.bnv_tab2 -> binding.bottomViewPager.currentItem = 1
                 R.id.bnv_tab3 -> binding.bottomViewPager.currentItem = 2
+                R.id.bnv_tab4 -> binding.bottomViewPager.currentItem = 3
             }
             return@setOnItemSelectedListener true
         }

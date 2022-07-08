@@ -11,17 +11,23 @@ import com.example.moim.databinding.FragmentBottomTab4LocationBinding
 
 class BottomLocationFragment : BaseFragment() {
 
-    lateinit var binding : FragmentBottomTab4LocationBinding
+    lateinit var binding: FragmentBottomTab4LocationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_tab4_location,container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_bottom_tab4_location,
+            container,
+            false
+        )
 
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupEvents()
