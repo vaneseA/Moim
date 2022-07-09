@@ -3,6 +3,7 @@ package com.example.moim
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
@@ -23,7 +24,7 @@ abstract class BaseActivity : AppCompatActivity() {
 //    lateinit var drawerBtn : ImageView
     lateinit var titleTxt : TextView
     lateinit var addBtn : ImageView
-    lateinit var profileBtn : ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,15 +55,16 @@ abstract class BaseActivity : AppCompatActivity() {
 //        drawerBtn = defActionBar.customView.findViewById<ImageView>(R.id.drawerBtn)
         titleTxt = defActionBar.customView.findViewById(R.id.titleTxt)
         addBtn = defActionBar.customView.findViewById(R.id.addBtn)
-        profileBtn = defActionBar.customView.findViewById<ImageView>(R.id.profileBtn)
+
 
 //        drawerBtn.setOnClickListener {
 //            finish()
 //        }
 
-        profileBtn.setOnClickListener {
-            val myIntent = Intent(mContext, ProfileActivity::class.java)
-            startActivity(myIntent)
-        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu_option_main, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

@@ -17,8 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="타이틀"
+        android:fontFamily="@font/jalnanche"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_gravity="center"/>
 
     <ImageView
@@ -31,11 +32,5 @@
         android:visibility="gone"
         android:layout_gravity="center|end"/>
 
-    <ImageView
-        android:id="@+id/profileBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/user"
-        android:layout_gravity="center|end"/>
 
 </FrameLayout>
