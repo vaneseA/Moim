@@ -27,5 +27,7 @@
             app:menu="@menu/menu_bottom_navigation"
             app:labelVisibilityMode="labeled"/>
         //이름다표시 app:labelVisibilityMode="labeled"/>
+
     </LinearLayout>
+
 </layout>
