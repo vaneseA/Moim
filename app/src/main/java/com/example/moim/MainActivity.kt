@@ -24,7 +24,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        titleTxt.text = "다모임"
+        titleTxt.text = "모임찾기"
 
         mBottomAdapter = BottomViewPagerAdapter(this)
         binding.bottomViewPager.adapter = mBottomAdapter

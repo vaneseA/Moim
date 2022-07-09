@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var retrofit : Retrofit
     lateinit var apiList : APIList
 
-    lateinit var backBtn : ImageView
+//    lateinit var drawerBtn : ImageView
     lateinit var titleTxt : TextView
     lateinit var addBtn : ImageView
     lateinit var profileBtn : ImageView
@@ -51,14 +51,14 @@ abstract class BaseActivity : AppCompatActivity() {
         toolbar.setContentInsetsAbsolute(0,0)
 
 
-        backBtn = defActionBar.customView.findViewById<ImageView>(R.id.backBtn)
+//        drawerBtn = defActionBar.customView.findViewById<ImageView>(R.id.drawerBtn)
         titleTxt = defActionBar.customView.findViewById(R.id.titleTxt)
         addBtn = defActionBar.customView.findViewById(R.id.addBtn)
         profileBtn = defActionBar.customView.findViewById<ImageView>(R.id.profileBtn)
 
-        backBtn.setOnClickListener {
-            finish()
-        }
+//        drawerBtn.setOnClickListener {
+//            finish()
+//        }
 
         profileBtn.setOnClickListener {
             val myIntent = Intent(mContext, ProfileActivity::class.java)

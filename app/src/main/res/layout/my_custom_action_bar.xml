@@ -7,10 +7,10 @@
 
 
     <ImageView
-        android:id="@+id/backBtn"
+        android:id="@+id/drawerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/short_left"
+        android:src="@drawable/drawer_24"
         android:layout_gravity="center|start"/>
     <TextView
         android:id="@+id/titleTxt"

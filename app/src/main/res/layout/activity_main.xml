@@ -9,18 +9,7 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/mainTabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/red"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/red" />
 
-<!--        <androidx.viewpager.widget.ViewPager-->
-<!--            android:id="@+id/mainViewPager"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/bottomViewPager"
@@ -31,9 +20,12 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/menu_bottom_navigation" />
+            app:itemIconTint="@color/menu_selector_color"
+            app:itemTextColor="@color/menu_selector_color"
+            app:menu="@menu/menu_bottom_navigation"
+            app:labelVisibilityMode="labeled"/>
+        //이름다표시 app:labelVisibilityMode="labeled"/>
     </LinearLayout>
 </layout>
