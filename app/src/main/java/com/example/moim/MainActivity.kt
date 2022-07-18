@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.example.moim.adpaters.BottomViewPagerAdapter
-import com.example.moim.adpaters.MainViewPagerAdapter
 import com.example.moim.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
