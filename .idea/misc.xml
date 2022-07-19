@@ -46,6 +46,7 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/layout/anim_splash_imageview.xml" value="0.40260416666666665" />
         <entry key="app/src/main/res/layout/appbar.xml" value="0.40260416666666665" />
+        <entry key="app/src/main/res/layout/custom_alert_dialog.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/fragment_all.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_bottom_tab1_meet.xml" value="0.1" />
@@ -62,7 +63,7 @@
         <entry key="app/src/main/res/menu/menu_list.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_option_main.xml" value="0.25" />
-        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.203125" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.335" />
       </map>
     </option>
   </component>
