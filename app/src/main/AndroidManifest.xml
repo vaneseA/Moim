@@ -19,6 +19,11 @@
 <!--            android:name="ui.menu.NavigationDrawer"-->
 <!--            android:exported="false" />-->
         <activity
+            android:name=".ProfileSetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+        <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

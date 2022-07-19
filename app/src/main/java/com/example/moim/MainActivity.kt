@@ -1,7 +1,10 @@
 package com.example.moim
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
@@ -26,9 +29,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
     }
 
     override fun setValues() {
+
         titleTxt.text = "모임찾기"
 
         mBottomAdapter = BottomViewPagerAdapter(this)
@@ -61,6 +66,13 @@ class MainActivity : BaseActivity() {
 
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)
+        val header = navView.getHeaderView(0)
+
+        header.findViewById<RelativeLayout>(R.id.profileBtn)
+        header.setOnClickListener{
+            val myIntent = Intent(mContext,ProfileSetActivity::class.java )
+            startActivity(myIntent)
+        }
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -78,6 +90,8 @@ class MainActivity : BaseActivity() {
             }
             true
         }
+
+
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:background="#9FE3D7"
+    android:id="@+id/profileBtn"
     android:padding="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
