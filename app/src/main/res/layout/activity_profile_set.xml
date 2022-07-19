@@ -161,5 +161,8 @@
         android:layout_alignBottom="@id/et_profile_set_message"
         android:layout_margin="4dp"
         android:textColor="#ff888888"/>
+
 </RelativeLayout>
+
+
 </layout>

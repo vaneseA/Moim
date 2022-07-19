@@ -38,5 +38,12 @@
             android:title="설정" />
 
     </group>
+    <group android:id="@+id/navigation_menu_tab4">
 
+        <item
+            android:id="@+id/navigation_menu_logout"
+            android:icon="@drawable/ic_baseline_exit_24"
+            android:title="로그아웃" />
+
+    </group>
 </menu>

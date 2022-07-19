@@ -87,6 +87,8 @@ class MainActivity : BaseActivity() {
                 R.id.navigation_menu__premium_meet -> Toast.makeText(applicationContext,"Clicked navigation_menu__premium_meet", Toast.LENGTH_SHORT).show()
                 R.id.navigation_menu_mk_charge_class -> Toast.makeText(applicationContext,"Clicked navigation_menu_mk_charge_class", Toast.LENGTH_SHORT).show()
                 R.id.navigation_menu_setting -> Toast.makeText(applicationContext,"Clicked navigation_menu_setting", Toast.LENGTH_SHORT).show()
+                R.id.navigation_menu_logout -> Toast.makeText(applicationContext,"Clicked navigation_menu_logout", Toast.LENGTH_SHORT).show()
+
             }
             true
         }
