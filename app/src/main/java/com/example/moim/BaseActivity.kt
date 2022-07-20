@@ -16,6 +16,7 @@ import retrofit2.Retrofit
 
 abstract class BaseActivity : AppCompatActivity() {
 
+
     lateinit var mContext : Context
 
     lateinit var retrofit : Retrofit

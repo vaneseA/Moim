@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.example.moim.BaseActivity
 import com.example.moim.MainActivity
 import com.example.moim.R
@@ -11,6 +12,7 @@ import com.example.moim.models.BasicResponse
 import com.example.moim.ui.main.LoginActivity
 import com.example.moim.utils.ContextUtil
 import com.example.moim.utils.GlobalData
+import com.kakao.sdk.common.util.Utility
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +24,7 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        getKeyHash()
         setupEvents()
         setValues()
     }
@@ -59,5 +62,9 @@ class SplashActivity : BaseActivity() {
             startActivity(myIntent)
             finish()
         }, 1800)
+    }
+    fun getKeyHash() {
+        var keyHash = Utility.getKeyHash(this)
+        Log.d("kakao_keyHash", keyHash)
     }
 }
