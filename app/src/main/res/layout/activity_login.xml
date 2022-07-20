@@ -114,9 +114,11 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/red"
                 android:fontFamily="@font/jalnanche"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
                 android:text="회원가입"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="17dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,8 +135,10 @@
                 android:backgroundTint="@color/red"
                 android:fontFamily="@font/jalnanche"
                 android:textColor="@color/white"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="비밀번호 찾기"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 
