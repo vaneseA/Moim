@@ -17,6 +17,15 @@ interface APIList {
         @Field("password") password : String,
     ) : Call<BasicResponse>
 
+//kakao
+    @FormUrlEncoded
+    @POST("/user/social")
+    fun postRequestSocialLogin(
+        @Field("provider") provider : String,
+        @Field("uid") uid : String,
+        @Field("nick_name") nickname : String,
+    ) : Call<BasicResponse>
+
     @FormUrlEncoded
     @PUT("/user")
     fun putRequestSignUp(
