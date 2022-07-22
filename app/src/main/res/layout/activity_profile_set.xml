@@ -52,24 +52,24 @@
         android:layout_alignBottom="@id/profileImg"/>
 
     <EditText
-        android:id="@+id/et_profile_set_name"
+        android:id="@+id/nicknameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_edit_text_create_activity"
-        android:privateImeOptions="defaultInputmode=korean"
-        android:ems="10"
         android:layout_below="@id/profileImg"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:hint="이름"
-        android:padding="10dp"/>
+        android:background="@drawable/bg_edit_text_create_activity"
+        android:ems="10"
+        android:hint="닉네임"
+        android:padding="10dp"
+        android:privateImeOptions="defaultInputmode=korean" />
 
     <RadioGroup
         android:id="@+id/radio_group_profile_set"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/et_profile_set_name"
-        android:layout_alignBottom="@id/et_profile_set_name"
+        android:layout_toRightOf="@id/nicknameTxt"
+        android:layout_alignBottom="@id/nicknameTxt"
         android:orientation="horizontal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -110,7 +110,7 @@
         android:layout_height="44dp"
         android:background="@drawable/bg_edit_text_create_activity"
         android:ems="11"
-        android:layout_below="@id/et_profile_set_name"
+        android:layout_below="@id/nicknameTxt"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
@@ -124,7 +124,7 @@
         android:layout_height="44dp"
         android:background="@drawable/bg_edit_text_create_activity"
         android:ems="11"
-        android:layout_below="@id/et_profile_set_name"
+        android:layout_below="@id/nicknameTxt"
         android:layout_toRightOf="@id/tv_profile_set_birth"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
