@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : BaseActivity() {
     private var profileImg: CircleImageView? = null
-    private var nicknameTxt: TextView? = null
+    private var nicknameEdt: TextView? = null
     private var userId: String? = null
     lateinit var binding: ActivityMainBinding
 
@@ -83,14 +83,14 @@ class MainActivity : BaseActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val header = navView.getHeaderView(0)
-        nicknameTxt = header.findViewById(R.id.nicknameTxt)
+        nicknameEdt = header.findViewById(R.id.nicknameTxt)
         profileImg = header.findViewById(R.id.profileImg)
 
         //네비게이션 헤더
         Glide.with(mContext)
             .load(GlobalData.loginUser!!.profileImg)
             .into(profileImg!!)
-        nicknameTxt?.text = GlobalData.loginUser!!.nickname
+        nicknameEdt?.text = GlobalData.loginUser!!.nickname
 
         header.findViewById<RelativeLayout>(R.id.profileBtn)
         header.setOnClickListener {
