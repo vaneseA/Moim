@@ -60,6 +60,8 @@ class ProfileSetActivity : BaseActivity() {
             TedPermission.create()
                 .setPermissionListener(pl)
                 .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
+//            테드 퍼미션이 지원하는 Denied 경우의 Alert
+                .setDeniedMessage("[설정] > [권한]에서 갤러리 권한을 열어주세요.")
                 .check()
 
         }
