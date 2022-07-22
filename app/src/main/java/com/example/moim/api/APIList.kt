@@ -2,6 +2,7 @@ package com.example.moim.api
 
 
 import com.example.moim.models.BasicResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -46,5 +47,10 @@ interface APIList {
     @Query("type") type : String,
     @Query("value") value : String,
 ) : Call<BasicResponse>
+
+//    이미지url
+    @Multipart
+    @PUT("/user/image")
+    fun putRequestUserImage(@Part profileImg : MultipartBody.Part) : Call<BasicResponse>
 
 }
