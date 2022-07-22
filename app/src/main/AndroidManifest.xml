@@ -20,7 +20,7 @@
 <!--            android:name="ui.menu.NavigationDrawer"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".ProfileSetActivity"
+            android:name=".ui.profile.ProfileSetActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 

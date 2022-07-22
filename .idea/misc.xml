@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/drawable/menu_selector_color.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/radionbutton_female.xml" value="0.2505" />
         <entry key="app/src/main/res/drawable/radionbutton_male.xml" value="0.2505" />
-        <entry key="app/src/main/res/layout/activity_image_profile.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/activity_image_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />

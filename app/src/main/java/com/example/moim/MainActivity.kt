@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,19 +15,24 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.moim.adpaters.BottomViewPagerAdapter
 import com.example.moim.databinding.ActivityMainBinding
 import com.example.moim.ui.main.LoginActivity
+import com.example.moim.ui.profile.ProfileSetActivity
+import com.example.moim.utils.GlobalData
 import com.google.android.material.navigation.NavigationView
-import com.neppplus.a20220530_keepthetime.dialogs.CustomAlertDialog
+import de.hdodenhof.circleimageview.CircleImageView
+
 
 class MainActivity : BaseActivity() {
-
+    private var profileImg: CircleImageView? = null
+    private var nicknameTxt: TextView? = null
+    private var userId: String? = null
     lateinit var binding: ActivityMainBinding
-//    lateinit var mAdapter : MainViewPagerAdapter
-    lateinit var mBottomAdapter : BottomViewPagerAdapter
-    lateinit var toggle : ActionBarDrawerToggle
+
+
+    lateinit var mBottomAdapter: BottomViewPagerAdapter
+    lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-//        mAdapter = MainViewPagerAdapter(supportFragmentManager)
         setupEvents()
         setValues()
     }
@@ -36,7 +43,14 @@ class MainActivity : BaseActivity() {
 
     override fun setValues() {
 
+        when (GlobalData.loginUser!!.provider) {
+            "kakao" -> {}
+            "facebook" -> {}
+            else -> profileImg?.visibility = View.GONE
+        }
         titleTxt.text = "모임찾기"
+
+
 
         mBottomAdapter = BottomViewPagerAdapter(this)
         binding.bottomViewPager.adapter = mBottomAdapter
@@ -46,7 +60,7 @@ class MainActivity : BaseActivity() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     binding.bottomNav.menu.getItem(position).isChecked = true
-                    titleTxt.text = when (position){
+                    titleTxt.text = when (position) {
                         0 -> "모임찾기"
                         1 -> "유료클래스"
                         2 -> "내모임"
@@ -66,46 +80,85 @@ class MainActivity : BaseActivity() {
         }
 
 
-        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
-        val navView : NavigationView = findViewById(R.id.nav_view)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
+        val navView: NavigationView = findViewById(R.id.nav_view)
         val header = navView.getHeaderView(0)
+        nicknameTxt = header.findViewById(R.id.nicknameTxt)
+        profileImg = header.findViewById(R.id.profileImg)
+
+        //네비게이션 헤더
+        Glide.with(mContext)
+            .load(GlobalData.loginUser!!.profileImg)
+            .into(profileImg!!)
+        nicknameTxt?.text = GlobalData.loginUser!!.nickname
 
         header.findViewById<RelativeLayout>(R.id.profileBtn)
-        header.setOnClickListener{
-            val myIntent = Intent(mContext,ProfileSetActivity::class.java )
+        header.setOnClickListener {
+            val myIntent = Intent(mContext, ProfileSetActivity::class.java)
             startActivity(myIntent)
         }
 
-        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        navView.setNavigationItemSelectedListener{
+        navView.setNavigationItemSelectedListener {
             val myIntent = Intent(mContext, LoginActivity::class.java)
             myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(myIntent)
-            when(it.itemId){
-                R.id.navigation_menu_interest -> Toast.makeText(applicationContext,"Clicked navigation_menu_interest", Toast.LENGTH_SHORT).show()
-                R.id.navigation_menu_favorite_meet -> Toast.makeText(applicationContext,"Clicked navigation_menu_favorite_meet", Toast.LENGTH_SHORT).show()
-                R.id.navigation_menu_recent_meet -> Toast.makeText(applicationContext,"Clicked navigation_menu_recent_meet", Toast.LENGTH_SHORT).show()
-                R.id.navigation_menu__premium_meet -> Toast.makeText(applicationContext,"Clicked navigation_menu__premium_meet", Toast.LENGTH_SHORT).show()
-                R.id.navigation_menu_mk_charge_class -> Toast.makeText(applicationContext,"Clicked navigation_menu_mk_charge_class", Toast.LENGTH_SHORT).show()
-                R.id.navigation_menu_setting -> Toast.makeText(applicationContext,"Clicked navigation_menu_setting", Toast.LENGTH_SHORT).show()
+            when (it.itemId) {
+                R.id.navigation_menu_interest -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu_interest",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.navigation_menu_favorite_meet -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu_favorite_meet",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.navigation_menu_recent_meet -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu_recent_meet",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.navigation_menu__premium_meet -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu__premium_meet",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.navigation_menu_mk_charge_class -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu_mk_charge_class",
+                    Toast.LENGTH_SHORT
+                ).show()
+                R.id.navigation_menu_setting -> Toast.makeText(
+                    applicationContext,
+                    "Clicked navigation_menu_setting",
+                    Toast.LENGTH_SHORT
+                ).show()
                 R.id.navigation_menu_logout -> myIntent
             }
             true
         }
 
 
-
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if(toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
 
         return super.onOptionsItemSelected(item)
     }
+
+//    fun setUserData() {
+//        Glide.with(mContext)
+//            .load(GlobalData.loginUser!!.profileImg)
+////            .into(profileImg)
+//        nicknameTxt?.text = GlobalData.loginUser!!.nickname
+//    }
 }

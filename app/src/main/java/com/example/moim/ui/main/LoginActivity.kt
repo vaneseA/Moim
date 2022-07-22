@@ -10,7 +10,6 @@ import com.example.moim.MainActivity
 import com.example.moim.R
 import com.example.moim.databinding.ActivityLoginBinding
 import com.example.moim.models.BasicResponse
-import com.example.moim.ui.profile.ProfileActivity
 import com.example.moim.ui.signup.SignUpActivity
 import com.example.moim.utils.ContextUtil
 import com.example.moim.utils.GlobalData
@@ -36,10 +35,6 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.goToProfileImg.setOnClickListener {
-            val myIntent = Intent(this, ProfileActivity::class.java)
-            startActivity(myIntent)
-        }
 
         binding.loginBtn.setOnClickListener {
             val inputEmail = binding.emailEdt.text.toString()
@@ -60,7 +55,7 @@ class LoginActivity : BaseActivity() {
 
                         Toast.makeText(
                             mContext,
-                            "${br.data.user.nick_name}님 환영합니다.",
+                            "${br.data.user.nickname}님 환영합니다.",
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -160,7 +155,7 @@ class LoginActivity : BaseActivity() {
 
                     Toast.makeText(
                         mContext,
-                        "${GlobalData.loginUser!!.nick_name}님 환영합니다.",
+                        "${GlobalData.loginUser!!.nickname}님 환영합니다.",
                         Toast.LENGTH_SHORT
                     ).show()
 

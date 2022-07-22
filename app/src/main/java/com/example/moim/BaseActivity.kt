@@ -1,7 +1,6 @@
 package com.example.moim
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
@@ -11,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.moim.api.APIList
 import com.example.moim.api.ServerApi
-import com.example.moim.ui.profile.ProfileActivity
 import retrofit2.Retrofit
 
 abstract class BaseActivity : AppCompatActivity() {
