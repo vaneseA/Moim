@@ -44,7 +44,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
+    /////클리어 필요
         when (GlobalData.loginUser!!.provider) {
             "kakao" -> {}
             "facebook" -> {}
