@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.moim.BaseActivity
-import com.example.moim.MainActivity
 import com.example.moim.R
 import com.example.moim.databinding.ActivityLoginBinding
 import com.example.moim.models.BasicResponse

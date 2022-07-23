@@ -35,13 +35,18 @@
         <entry key="app/src/main/res/drawable/menu_selector_color.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/radionbutton_female.xml" value="0.2505" />
         <entry key="app/src/main/res/drawable/radionbutton_male.xml" value="0.2505" />
+        <entry key="app/src/main/res/layout/activity_checked.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_image_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_my_page_setting.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_navigation_drawer.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_new_charge_class.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_premium.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_profile_set.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/activity_recent.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/layout/anim_splash_imageview.xml" value="0.40260416666666665" />
@@ -49,7 +54,7 @@
         <entry key="app/src/main/res/layout/custom_alert_dialog.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/fragment_all.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.275" />
-        <entry key="app/src/main/res/layout/fragment_bottom_tab1_meet.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_bottom_tab1_meet.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_bottom_tab2_charge.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_bottom_tab3_my_page.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_bottom_tab4_location.xml" value="0.21822916666666667" />

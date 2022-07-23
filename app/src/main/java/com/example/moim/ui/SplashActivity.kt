@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import com.example.moim.BaseActivity
-import com.example.moim.MainActivity
+import com.example.moim.ui.main.MainActivity
 import com.example.moim.R
 import com.example.moim.models.BasicResponse
 import com.example.moim.ui.main.LoginActivity

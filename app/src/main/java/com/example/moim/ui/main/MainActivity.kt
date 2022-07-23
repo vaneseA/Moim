@@ -1,4 +1,4 @@
-package com.example.moim
+package com.example.moim.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,9 +12,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager2.widget.ViewPager2
+import com.example.moim.BaseActivity
+import com.example.moim.R
 import com.example.moim.adpaters.BottomViewPagerAdapter
 import com.example.moim.databinding.ActivityMainBinding
-import com.example.moim.ui.main.LoginActivity
+import com.example.moim.ui.*
 import com.example.moim.ui.profile.ProfileSetActivity
 import com.example.moim.utils.GlobalData
 import com.google.android.material.navigation.NavigationView
@@ -106,39 +108,23 @@ class MainActivity : BaseActivity() {
         navView.setNavigationItemSelectedListener {
             val myIntent = Intent(mContext, LoginActivity::class.java)
             myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(myIntent)
+
             when (it.itemId) {
                 R.id.navigation_menu_interest -> Toast.makeText(
                     applicationContext,
                     "Clicked navigation_menu_interest",
                     Toast.LENGTH_SHORT
                 ).show()
-                R.id.navigation_menu_favorite_meet -> Toast.makeText(
-                    applicationContext,
-                    "Clicked navigation_menu_favorite_meet",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.navigation_menu_recent_meet -> Toast.makeText(
-                    applicationContext,
-                    "Clicked navigation_menu_recent_meet",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.navigation_menu__premium_meet -> Toast.makeText(
-                    applicationContext,
-                    "Clicked navigation_menu__premium_meet",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.navigation_menu_mk_charge_class -> Toast.makeText(
-                    applicationContext,
-                    "Clicked navigation_menu_mk_charge_class",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.navigation_menu_setting -> Toast.makeText(
-                    applicationContext,
-                    "Clicked navigation_menu_setting",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.navigation_menu_logout -> myIntent
+                R.id.navigation_menu_favorite_meet -> startActivity(Intent(mContext,
+                    CheckedActivity::class.java))
+                R.id.navigation_menu_recent_meet -> startActivity(Intent(mContext, RecentActivity::class.java))
+                R.id.navigation_menu__premium_meet -> startActivity(Intent(mContext,
+                    PremiumActivity::class.java))
+                R.id.navigation_menu_mk_charge_class -> startActivity(Intent(mContext,
+                    NewChargeClassActivity::class.java))
+                R.id.navigation_menu_setting -> startActivity(Intent(mContext,
+                    MyPageSettingActivity::class.java))
+                R.id.navigation_menu_logout -> startActivity(myIntent)
             }
             true
         }
