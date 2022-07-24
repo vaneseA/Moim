@@ -51,14 +51,14 @@
                 android:fontFamily="@font/jalnanche"
                 android:text="지역" />
 
-            <TextView
-                android:id="@+id/txtVwLocation"
+            <EditText
+                android:id="@+id/LocationTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/bg_edit_text_create_activity"
                 android:padding="8dp"
-                android:text="동,읍,면 찾기"
+                android:hint="동,읍,면 입력"
                 android:fontFamily="@font/jalnanche"
                 android:textColor="#ff999999"
                 android:textSize="18sp" />
@@ -78,7 +78,7 @@
                 android:src="@drawable/ic_bottom_tab1_meet" />
 
             <EditText
-                android:id="@+id/edtVwGroupName"
+                android:id="@+id/groupNameEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -92,7 +92,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edtVwObjectMsg"
+            android:id="@+id/purposeEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -118,7 +118,7 @@
             android:text="대표 이미지 설정" />
 
         <ImageView
-            android:id="@+id/imgVwTitle"
+            android:id="@+id/moimImg"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -127,9 +127,12 @@
             android:src="@drawable/bg_image_search" />
 
         <Button
+            android:id="@+id/createMoimBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:background="@color/red"
             android:fontFamily="@font/jalnanche"
             android:text="모임 만들기" />
 

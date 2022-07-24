@@ -73,7 +73,7 @@ class ProfileSetActivity : BaseActivity() {
 
 //        닉네임 변경 이벤트
         binding.saveBtn.setOnClickListener {
-
+            val inputTitle = binding.nicknameEdt.text.toString()
             apiList.patchRequestEditUserInfo(
                 "nickname",
                 binding.nicknameEdt.text.toString()
@@ -82,6 +82,10 @@ class ProfileSetActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
+                    if (inputTitle.isBlank()) {
+                        return Toast.makeText(mContext, "수정사항이 없습니다", Toast.LENGTH_SHORT).show()
+
+                    }
                     if (response.isSuccessful) {
                         val br = response.body()!!
                         val message = "프로필 수정 완료"
@@ -122,14 +126,15 @@ class ProfileSetActivity : BaseActivity() {
         binding.nicknameEdt.hint = GlobalData.loginUser!!.nickname
     }
 
-    val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == Activity.RESULT_OK) {
+    val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
 //            어떤 사진을 골랏는지? 파악해보자
 //            임시 : 고른 사진을 profileImg에 바로 적용만 (서버전송 X)
 
 //            data? => 이전 화면이 넘겨준 intent
 //            data?.data => 선택한 사진이 들어있는 경로 정보 (Uri)
-            val dataUri = it.data?.data
+                val dataUri = it.data?.data
 
 //            Uri -> 이미지뷰의 사진 (GLide)
 //            Glide.with(mContext).load(dataUri).into(binding.profileImg)
@@ -138,33 +143,34 @@ class ProfileSetActivity : BaseActivity() {
 //            파일을 같이 첨부해야 => Multipart 형식의 데이터 첨부 활용 (기존 FromData와는 다르다!!)
 
 //            Uri -> File 형태로 변환 -> 그 파일의 실제 경로를 얻어낼 필요가 있다.
-            val file = File(URIPathHelper().getPath(mContext, dataUri!!))
+                val file = File(URIPathHelper().getPath(mContext, dataUri!!))
 
 //            파일을 retrofit에 첨부할 수 있는 => RequestBody => MultipartBody 형태로 변환
-            val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
-            val body = MultipartBody.Part.createFormData("profile_image", "myFile.jpg", fileReqBody)
+                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+                val body =
+                    MultipartBody.Part.createFormData("profile_image", "myFile.jpg", fileReqBody)
 
-            apiList.putRequestUserImage(body).enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-                    if (response.isSuccessful) {
+                apiList.putRequestUserImage(body).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+                        if (response.isSuccessful) {
 //                        1. 선택한 이미지로 UI 프사 변경
-                        GlobalData.loginUser = response.body()!!.data.user
+                            GlobalData.loginUser = response.body()!!.data.user
 
-                        Glide.with(mContext).load(GlobalData.loginUser!!.profileImg)
-                            .into(binding.profileImg)
+                            Glide.with(mContext).load(GlobalData.loginUser!!.profileImg)
+                                .into(binding.profileImg)
 
 //                        2. 토스트로 성공 메세지
-                        Toast.makeText(mContext, "프로필 사진이 변경되었습니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(mContext, "프로필 사진이 변경되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-                }
-            })
-    }
-}
+                    }
+                })
+            }
+        }
 }

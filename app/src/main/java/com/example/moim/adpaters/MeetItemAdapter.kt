@@ -14,9 +14,12 @@ class MeetItemAdapter (
 
             inner class ItemViewHolder (val binding : LayoutRecyclerMeetBaseItemBinding) : RecyclerView.ViewHolder(binding.root) {
             fun bind(item : GroupData) {
-                binding.meettingTitleTxt.text = item.title
-                binding.locationTxt.text = item.title
-                binding.purposeTxt.text = item.title
+
+                //서버이용을위해 이메일 닉네임 패스워드를 각각 모임명 장소 모임목적으로 이용.
+                binding.meettingTitleTxt.text = item.email
+                binding.locationTxt.text = item.nickname
+                binding.purposeTxt.text = item.password
+//                binding.meetingImg.imgview = item.profileImg
             }
             }
 
