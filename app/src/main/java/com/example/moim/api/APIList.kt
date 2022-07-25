@@ -7,6 +7,12 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface APIList {
+
+    //    appointment -> moimlist
+    @GET("/user")
+    fun getRequestMoimList() : Call<BasicResponse>
+
+
     //    user
     @GET("/user")
     fun getRequestMyInfo(@Header("X-Http-Token") token : String) : Call<BasicResponse>

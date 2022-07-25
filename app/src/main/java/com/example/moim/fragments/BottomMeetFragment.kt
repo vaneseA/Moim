@@ -1,21 +1,31 @@
 package com.example.moim.fragments
 
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.moim.R
+import com.example.moim.adpaters.MeetItemAdapter
 import com.example.moim.databinding.FragmentBottomTab1MeetBinding
+import com.example.moim.models.BasicResponse
+import com.example.moim.models.GroupData
 import com.example.moim.ui.CreateActivity
-import com.example.moim.ui.RecentActivity
+import com.example.moim.utils.GlobalData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class BottomMeetFragment : BaseFragment() {
-//    private var categories: Array<String>
-//    private var resources: Resources? = null
     lateinit var binding: FragmentBottomTab1MeetBinding
+    lateinit var mMeetItemAdapter: MeetItemAdapter
+    var mMoimList = ArrayList<GroupData>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,6 +35,7 @@ class BottomMeetFragment : BaseFragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_tab1_meet, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupEvents()
@@ -32,22 +43,37 @@ class BottomMeetFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-
-    }
-
-    override fun setValues() {
-
         binding.meettingAddBtn.setOnClickListener {
             startActivity(Intent(mContext, CreateActivity::class.java))
         }
-//categoryRecycler build
-//        resources = getResources()
-//        categories = resources!!.getStringArray(R.array.category_for_interest_in_meet)
-//        categoryAdapter = CategoryAdapter(activity, categories, this)
-//        recyclerCategory.setAdapter(categoryAdapter)
-//        buttonAdd.setOnClickListener(View.OnClickListener {
-//            val intent = Intent(activity, CreateActivity::class.java)
-//            startActivity(intent)
-//        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getMoimListFromServer()
+    }
+
+    override fun setValues() {
+        mMeetItemAdapter = MeetItemAdapter(mContext, mMoimList)
+        binding.recyclerItems.adapter = mMeetItemAdapter
+        binding.recyclerItems.layoutManager = LinearLayoutManager(mContext)
+
+    }
+
+    fun getMoimListFromServer() {
+        apiList.getRequestMoimList().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful) {
+                    val br = response.body()!!
+                    mMoimList.clear()
+                    mMoimList.addAll(br.data.appointments)
+                    mMeetItemAdapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+        })
     }
 }
