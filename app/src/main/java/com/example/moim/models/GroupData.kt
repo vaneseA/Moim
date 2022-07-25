@@ -5,10 +5,10 @@ import java.util.*
 
 class GroupData (
     val id : Int,
-    //모임이름
+    //지역
     val email : String,
 
-    //지역
+    //모임이름
     @SerializedName("nick_name")
     val nickname : String,
 
