@@ -37,7 +37,7 @@ class CreateActivity : BaseActivity(){
         setupEvents()
         setValues()
     }
-
+//
     override fun setupEvents() {
 
         //        모임사진 등록
